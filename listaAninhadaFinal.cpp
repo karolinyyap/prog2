@@ -1,13 +1,4 @@
-/* Lista Aninhada 2 
-   26-03-2025
-   Tarefa Avaliativa
-   
-   Trabalho em Dupla:
-   
-   (1)KAROLINY ANDRISEN DO PRADO NEPPEL
-   (2)SARA MACIEL MARTINS
-   
-*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -112,7 +103,7 @@ int main(){
         }
     } while (opcao != 0);
 }
-//===| Funções |==================================================
+//===| FunÃ§Ãµes |==================================================
 void inicializa(TLista *L){
 	L->cursos = NULL;
 	L->disciplinas = NULL;	
@@ -161,7 +152,7 @@ int inserirDisciplina(TLista *L){
 		fflush(stdin);
 		gets(novo->nome);
 		
-		printf("\n\tCarga horária: ");
+		printf("\n\tCarga horÃ¡ria: ");
 		scanf("%d", &novo->cargaHoraria);
 	    getchar();
 	    
@@ -231,7 +222,7 @@ void imprimeListaDisciplinas(TLista L) {
     }
 
     while (atual != NULL) {
-        printf("\t(%d) - %s | Carga Horária: %d horas\n", ++cont, atual->nome, atual->cargaHoraria);
+        printf("\t(%d) - %s | Carga HorÃ¡ria: %d horas\n", ++cont, atual->nome, atual->cargaHoraria);
         atual = atual->prox;
     }
 
@@ -263,7 +254,7 @@ void registrarPreRequisito(TLista *L) {
     char continuar = 's';
     char nomeDisciplina[40], nomePreReq[40];
 
-    printf("\n\n\t\t=======| CADASTRAR PRÉ-REQUISITOS PARA DISCIPLINA |=======\n\n");
+    printf("\n\n\t\t=======| CADASTRAR PRÃ‰-REQUISITOS PARA DISCIPLINA |=======\n\n");
 
     do {
     	TPreRequisito *novo;
@@ -272,7 +263,7 @@ void registrarPreRequisito(TLista *L) {
         TDisciplina *disciplinaSelecionada = NULL;
         TDisciplina *preRequisitoSelecionado = NULL;
 		
-		printf("\n\tDigite o nome da disciplina para a qual deseja registrar pré-requisitos: ");
+		printf("\n\tDigite o nome da disciplina para a qual deseja registrar prÃ©-requisitos: ");
         fflush(stdin);
         gets(nomeDisciplina);
         
@@ -283,11 +274,11 @@ void registrarPreRequisito(TLista *L) {
         }
 
         if (disciplinaSelecionada == NULL) {
-            printf("\n\tDisciplina não encontrada!\n");
+            printf("\n\tDisciplina nÃ£o encontrada!\n");
             continue; 
         }
 
-        printf("\n\tDigite o nome do pré-requisito: ");
+        printf("\n\tDigite o nome do prÃ©-requisito: ");
         fflush(stdin);
         gets(nomePreReq);
 
@@ -297,7 +288,7 @@ void registrarPreRequisito(TLista *L) {
         }
 
         if (preRequisitoSelecionado == NULL) {
-            printf("\n\tPré-requisito não encontrado!\n");
+            printf("\n\tPrÃ©-requisito nÃ£o encontrado!\n");
             continue;
         }
         
@@ -313,7 +304,7 @@ void registrarPreRequisito(TLista *L) {
     	atual->prox = novo;
 		}
 
-        printf("\n\tPré-requisito cadastrado com sucesso!\n");
+        printf("\n\tPrÃ©-requisito cadastrado com sucesso!\n");
 
         printf("\n\tDeseja continuar cadastrando? (s/n): ");
         scanf(" %c", &continuar);
@@ -342,12 +333,12 @@ void registrarGradeCurricular(TLista *L) {
         }
 
         if (cursoSelecionado == NULL) {
-            printf("\n\tCurso não encontrado!\n");
+            printf("\n\tCurso nÃ£o encontrado!\n");
             continue;
         }
 
         do {
-            printf("\n\tDigite o nome da matéria a ser adicionada na grade (Para sair, digite '0'): ");
+            printf("\n\tDigite o nome da matÃ©ria a ser adicionada na grade (Para sair, digite '0'): ");
             fflush(stdin);
             gets(nomeDisciplina);
 
@@ -361,11 +352,11 @@ void registrarGradeCurricular(TLista *L) {
             }
 
             if (disciplinaSelecionada == NULL) {
-                printf("\n\tDisciplina não encontrada!\n");
+                printf("\n\tDisciplina nÃ£o encontrada!\n");
                 continue;
             }
 
-            printf("\tDigite o período da disciplina: ");
+            printf("\tDigite o perÃ­odo da disciplina: ");
             scanf("%d", &periodo);
             while (getchar() != '\n'); 
 
@@ -384,7 +375,7 @@ void registrarGradeCurricular(TLista *L) {
                 atual->prox = novo;
             }
 
-            printf("\n\tDisciplina adicionada à grade com sucesso!\n");
+            printf("\n\tDisciplina adicionada Ã  grade com sucesso!\n");
 
         } while (1);
 
@@ -400,7 +391,7 @@ void excluirDisciplina (TLista *L){
 	
 	printf("\n\n\t\t=======| EXCLUIR DISCIPLINA |=======\n\n");
 	
-	printf("\n\tInsira o nome da disciplina que você quer excluir: ");
+	printf("\n\tInsira o nome da disciplina que vocÃª quer excluir: ");
 	scanf(" %19[^\n]", nome);
 	TDisciplina *atual = L->disciplinas;
     TDisciplina *anterior = NULL;
@@ -411,7 +402,7 @@ void excluirDisciplina (TLista *L){
     }
 
     if (atual == NULL) {
-        printf("\n\tDisciplina não encontrada!\n");
+        printf("\n\tDisciplina nÃ£o encontrada!\n");
         return;
     }
 
@@ -422,7 +413,7 @@ void excluirDisciplina (TLista *L){
     }
 
     free(atual);
-    printf("\n\tDisciplina excluída com sucesso!\n");
+    printf("\n\tDisciplina excluÃ­da com sucesso!\n");
 	
 	printf("\n\n");
     system("PAUSE");
@@ -435,7 +426,7 @@ void excluirCurso (TLista *L) {
 	char cursoExclusao[40];
 	
 	printf("\n\n\n\t\t=====| EXCLUIR CURSO |=====\n\n");
-	printf("\tInsira o nome do curso a ser excluído: ");
+	printf("\tInsira o nome do curso a ser excluÃ­do: ");
 	fflush(stdin);
 	gets(cursoExclusao);
 	
@@ -455,7 +446,7 @@ void excluirCurso (TLista *L) {
 					anterior->prox = atualC->prox;
 				}
 				free(atualC);
-				printf("\n\tCurso excluído com sucesso!\n\n");
+				printf("\n\tCurso excluÃ­do com sucesso!\n\n");
 				system("PAUSE");
 				break;
 			}
@@ -467,7 +458,7 @@ void excluirCurso (TLista *L) {
 void excluirPreRequisito(TLista *L) {
     char nomeDisc[20], nomePReq[20];
     
-    printf("\n\n\t\t=======| EXCLUIR PRÉ-REQUISITO ESPECÍFICO |=======\n\n");
+    printf("\n\n\t\t=======| EXCLUIR PRÃ‰-REQUISITO ESPECÃFICO |=======\n\n");
     
     printf("\n\tInsira o nome da disciplina: ");
     scanf(" %19[^\n]", nomeDisc);
@@ -479,11 +470,11 @@ void excluirPreRequisito(TLista *L) {
     }
 
     if (disciplinaSelec == NULL) {
-        printf("\n\tDisciplina não encontrada!\n");
+        printf("\n\tDisciplina nÃ£o encontrada!\n");
         return;
     }
     
-    printf("\n\tInsira o nome do pré-requisito que você quer excluir: ");
+    printf("\n\tInsira o nome do prÃ©-requisito que vocÃª quer excluir: ");
     scanf(" %19[^\n]", nomePReq);
     
     TPreRequisito *atual = disciplinaSelec->preRequisitos;
@@ -495,7 +486,7 @@ void excluirPreRequisito(TLista *L) {
     }
     
     if (atual == NULL) {
-        printf("\n\tPré-requisito não encontrado!\n");
+        printf("\n\tPrÃ©-requisito nÃ£o encontrado!\n");
         return;
     }
     
@@ -506,7 +497,7 @@ void excluirPreRequisito(TLista *L) {
     }
 
     free(atual);
-    printf("\n\tPré-requisito excluído com sucesso!\n");
+    printf("\n\tPrÃ©-requisito excluÃ­do com sucesso!\n");
     printf("\n\n");
     system("PAUSE");
 }
@@ -525,7 +516,7 @@ void excluirGradeCurricular (TLista *L){
     }
     
 	if (cursoSelec == NULL) {
-        printf("\n\tCurso não encontrado!\n");
+        printf("\n\tCurso nÃ£o encontrado!\n");
         return;
     }
 	printf("\n\tInsira o nome da disciplina que deseja excluir da grade curricular: ");
@@ -540,7 +531,7 @@ void excluirGradeCurricular (TLista *L){
     }
     
     if (atual == NULL) {
-        printf("\n\tDisciplina não encontrada!\n");
+        printf("\n\tDisciplina nÃ£o encontrada!\n");
         return;
     }
      if (anterior == NULL) {
@@ -550,7 +541,7 @@ void excluirGradeCurricular (TLista *L){
     }
 
     free(atual);
-    printf("\n\tDisciplina excluída da grade curricular com sucesso!\n");
+    printf("\n\tDisciplina excluÃ­da da grade curricular com sucesso!\n");
     printf("\n\n");
     system("PAUSE");
 }
@@ -560,7 +551,7 @@ void listarPreRequisitos(TLista L) {
     TPreRequisito *preReq = NULL;
     char nomeDisciplina[40];
 
-    printf("\n\n\t\t=======| LISTA DE PRÉ-REQUISITOS POR DISCIPLINA |=======\n\n");
+    printf("\n\n\t\t=======| LISTA DE PRÃ‰-REQUISITOS POR DISCIPLINA |=======\n\n");
 
     if (L.disciplinas == NULL) {
         printf("\tNenhuma disciplina cadastrada!\n");
@@ -578,20 +569,20 @@ void listarPreRequisitos(TLista L) {
     }
 
     if (disciplinaProcurada == NULL) {
-        printf("\n\tDisciplina não encontrada!\n");
+        printf("\n\tDisciplina nÃ£o encontrada!\n");
     } else {
         printf("\n\tDisciplina: %s\n", disciplinaProcurada->nome);
-        printf("\tPré-Requisitos:\n");
+        printf("\tPrÃ©-Requisitos:\n");
 
         preReq = disciplinaProcurada->preRequisitos;
 		if (preReq == NULL) {
-    		printf("\t(Nenhum pré-requisito cadastrado)\n");
+    		printf("\t(Nenhum prÃ©-requisito cadastrado)\n");
 		} else {
     	while (preReq != NULL) {
         	if (preReq->preRequisito != NULL) {
             	printf("\t- %s\n", preReq->preRequisito->nome);
         } else {
-            printf("\t- (Pré-requisito inválido ou não definido)\n");
+            printf("\t- (PrÃ©-requisito invÃ¡lido ou nÃ£o definido)\n");
         }
         preReq = preReq->prox;
     }
@@ -620,7 +611,7 @@ void imprimeListaGrade(TLista L) {
     }
 
     if (cursoSelecionado == NULL) {
-        printf("\n\tCurso não encontrado!\n");
+        printf("\n\tCurso nÃ£o encontrado!\n");
         system("PAUSE");
         return;
     }
@@ -634,7 +625,7 @@ void imprimeListaGrade(TLista L) {
 
     gradeAtual = cursoSelecionado->gradeCurricular;
     while (gradeAtual != NULL) {
-        printf("\t- %s | Carga Horária: %d horas | Período: %d\n", gradeAtual->disciplina->nome, gradeAtual->disciplina->cargaHoraria, gradeAtual->periodo);
+        printf("\t- %s | Carga HorÃ¡ria: %d horas | PerÃ­odo: %d\n", gradeAtual->disciplina->nome, gradeAtual->disciplina->cargaHoraria, gradeAtual->periodo);
         gradeAtual = gradeAtual->prox;
     }
 
@@ -642,3 +633,4 @@ void imprimeListaGrade(TLista L) {
     system("PAUSE");
 }
 //================================================================
+
